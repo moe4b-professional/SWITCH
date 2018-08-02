@@ -47,6 +47,9 @@ namespace DEFAULTNAMESPACE
             {
                 foreach (var door in doors)
                     door.isOpen = true;
+
+                foreach (var sw in switches)
+                    sw.enabled = false;
             }
         }
 	}

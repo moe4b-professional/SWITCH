@@ -22,10 +22,9 @@ namespace DEFAULTNAMESPACE
 	public class Player : MonoBehaviour
 	{
         new Rigidbody rigidbody;
+        CustomGravity gravity;
 
         public bool control = true;
-
-        public float direction = 1f;
 
         public MovementData movement;
         [Serializable]
@@ -58,13 +57,14 @@ namespace DEFAULTNAMESPACE
         {
             if(control && Input.GetButtonDown(jump.inputButton))
             {
-                rigidbody.AddForce(Vector3.up * direction * jump.force, ForceMode.VelocityChange);
+                rigidbody.AddForce(Vector3.up * gravity.direction * jump.force, ForceMode.VelocityChange);
             }
         }
 
         void Awake()
         {
             rigidbody = GetComponent<Rigidbody>();
+            gravity = GetComponent<CustomGravity>();
         }
 
         void Update()
@@ -84,18 +84,23 @@ namespace DEFAULTNAMESPACE
         {
             control = false;
 
+            var constraints = rigidbody.constraints;
+            rigidbody.constraints = constraints | RigidbodyConstraints.FreezePositionX;
+
             var target = transform.position;
             target.x = xPosition;
 
             while (true)
             {
-                transform.position = Vector3.MoveTowards(transform.position, target, movement.speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, target, movement.speed * 2f * Time.deltaTime);
 
                 if (Mathf.Approximately(transform.position.x, xPosition))
                     break;
                 else
                     yield return new WaitForEndOfFrame();
             }
+
+            rigidbody.constraints = constraints;
 
             control = true;
             navigationCoroutine = null;

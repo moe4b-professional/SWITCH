@@ -28,27 +28,40 @@ namespace DEFAULTNAMESPACE
 
         public SwitchType type = SwitchType.Toggle;
 
-        bool active;
-        public bool Active { get { return active; } }
+        List<GameObject> activeGameObjects = new List<GameObject>();
+        public bool Active { get { return activeGameObjects.Count > 0; } }
 
         void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (!enabled) return;
+
+            if (activeGameObjects.Contains(collision.gameObject)) return;
+
+            if (IsActivator(collision.gameObject))
             {
-                active = true;
+                activeGameObjects.Add(collision.gameObject);
                 OnEnter.Invoke();
             }
         }
 
         void OnCollisionExit(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (!enabled) return;
+
+            if (!activeGameObjects.Contains(collision.gameObject)) return;
+
+            if (IsActivator(collision.gameObject))
             {
                 if (type == SwitchType.Hold)
-                    active = false;
+                    activeGameObjects.Remove(collision.gameObject);
 
                 OnExit.Invoke();
             }
+        }
+
+        bool IsActivator(GameObject gameObject)
+        {
+            return gameObject.CompareTag("Player") || gameObject.CompareTag("Prop");
         }
     }
 
