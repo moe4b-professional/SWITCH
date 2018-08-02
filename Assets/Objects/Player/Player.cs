@@ -104,6 +104,7 @@ namespace DEFAULTNAMESPACE
             }
 
             control = true;
+            navigationCoroutine = null;
         }
     }
 }

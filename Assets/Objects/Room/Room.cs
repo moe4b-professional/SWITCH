@@ -28,15 +28,17 @@ namespace DEFAULTNAMESPACE
         public Bounds Bounds { get; protected set; }
         void CalculateBounds()
         {
-            Bounds = new Bounds();
-
             var renderers = GetComponentsInChildren<Renderer>();
 
+            Bounds = renderers.First().bounds;
+
             foreach (var renderer in renderers)
+            {
                 Bounds.Encapsulate(renderer.bounds);
+            }
         }
 
-        void Awake()
+        void Start()
         {
             CalculateBounds();
         }

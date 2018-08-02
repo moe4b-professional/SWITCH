@@ -48,12 +48,14 @@ namespace DEFAULTNAMESPACE
             Player1.control = Player2.control = false;
 
             followCamera.MoveTo(target.transform.position.x);
-            var playerXTarget = target.transform.position.x - (target.Bounds.extents.x + 5f);
+            var playerXTarget = target.transform.position.x - (target.Bounds.extents.x - 5f);
             Player1.NavigateTo(playerXTarget);
             Player2.NavigateTo(playerXTarget);
 
             while (true)
             {
+                Debug.Log(Player1.IsNavigating + " : " + Player2.IsNavigating + " : " + followCamera.IsMoving);
+
                 if (Player1.IsNavigating || Player2.IsNavigating || followCamera.IsMoving)
                     yield return new WaitForEndOfFrame();
                 else
@@ -61,6 +63,21 @@ namespace DEFAULTNAMESPACE
             }
 
             Player1.control = Player2.control = true;
+
+            foreach (var door in current.doors)
+                door.isOpen = false;
+
+            Debug.Log("END");
+        }
+
+        void OnDrawGizmos()
+        {
+            if (!Application.isPlaying) return;
+
+            var position = target.transform.position;
+            position.x -= target.Bounds.size.x;
+
+            Gizmos.DrawCube(position, Vector3.one * 4f);
         }
     }
 }
