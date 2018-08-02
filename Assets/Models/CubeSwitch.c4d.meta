@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 96ffdd21fd5be6d43a13e172b52eb8f0
 ModelImporter:
   serializedVersion: 23
@@ -10,25 +9,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-=======
-guid: 4e2508262d053d24589a739c9c293be5
-ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: CINEMA_4D_Editor
-    100002: Cube
-    100004: //RootNode
-    400000: CINEMA_4D_Editor
-    400002: Cube
-    400004: //RootNode
-    2000000: CINEMA_4D_Editor
-    2100000: No Name
-    2300000: Cube
-    3300000: Cube
-    4300000: Cube
     9500000: //RootNode
-    2186277476908879412: ImportLogs
->>>>>>> b4cf1cd550d20bbeb8870af3caf3f9c189084c59
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -60,22 +41,13 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-<<<<<<< HEAD
     globalScale: 1
-=======
-    globalScale: 0.01
->>>>>>> b4cf1cd550d20bbeb8870af3caf3f9c189084c59
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-<<<<<<< HEAD
     importCameras: 1
     importLights: 1
-=======
-    importCameras: 0
-    importLights: 0
->>>>>>> b4cf1cd550d20bbeb8870af3caf3f9c189084c59
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -89,23 +61,14 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-<<<<<<< HEAD
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
-=======
-    previousCalculatedGlobalScale: 0.01
     hasPreviousCalculatedGlobalScale: 1
->>>>>>> b4cf1cd550d20bbeb8870af3caf3f9c189084c59
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-<<<<<<< HEAD
   importAnimation: 1
-=======
-  importAnimation: 0
->>>>>>> b4cf1cd550d20bbeb8870af3caf3f9c189084c59
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -121,14 +84,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-<<<<<<< HEAD
     hasExtraRoot: 0
-=======
-    hasExtraRoot: 1
->>>>>>> b4cf1cd550d20bbeb8870af3caf3f9c189084c59
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
