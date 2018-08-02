@@ -26,14 +26,14 @@ namespace DEFAULTNAMESPACE
         public UnityEvent OnEnter;
         public UnityEvent OnExit;
 
-        bool isActive;
-        public bool IsActive { get { return isActive; } }
+        bool active;
+        public bool Active { get { return active; } }
 
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                isActive = true;
+                active = true;
                 OnEnter.Invoke();
             }
         }
@@ -42,7 +42,6 @@ namespace DEFAULTNAMESPACE
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                isActive = false;
                 OnExit.Invoke();
             }
         }
