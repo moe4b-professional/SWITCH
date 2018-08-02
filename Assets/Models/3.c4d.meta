@@ -23,6 +23,7 @@ ModelImporter:
     100034: TopSwitch
     100036: TopSwitch_1
     100038: Wall
+    100040: CINEMA_4D_Editor
     400000: //RootNode
     400002: Bottom_Door
     400004: BottomFloor
@@ -43,6 +44,8 @@ ModelImporter:
     400034: TopSwitch
     400036: TopSwitch_1
     400038: Wall
+    400040: CINEMA_4D_Editor
+    2000000: CINEMA_4D_Editor
     2100000: No Name
     2300000: Bottom_Door
     2300002: BottomFloor
@@ -86,6 +89,7 @@ ModelImporter:
     4300022: Sepertator
     4300024: Cube_1
     4300026: Wall
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -117,13 +121,13 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -144,7 +148,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -160,7 +164,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
