@@ -1,94 +1,20 @@
 fileFormatVersion: 2
-guid: 8f0a0569d3f31d743a1318eea309a096
+guid: 9efca78f9c479bf47b3bc69155fca8ae
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Bottom_Door
-    100004: BottomFloor
-    100006: Cube
-    100008: Cube_1
-    100010: Cylinder
-    100012: Cylinder_2
-    100014: Doors
-    100016: Handle
-    100018: Handle_2
-    100020: Sepertator
-    100022: Sphere
-    100024: Sphere_2
-    100026: Switch_Body
-    100028: Switch_Body_2
-    100030: Top_Door_1
-    100032: TopFloor
-    100034: TopSwitch
-    100036: TopSwitch_1
-    100038: Wall
-    100040: CINEMA_4D_Editor
-    400000: //RootNode
-    400002: Bottom_Door
-    400004: BottomFloor
-    400006: Cube
-    400008: Cube_1
-    400010: Cylinder
-    400012: Cylinder_2
-    400014: Doors
-    400016: Handle
-    400018: Handle_2
-    400020: Sepertator
-    400022: Sphere
-    400024: Sphere_2
-    400026: Switch_Body
-    400028: Switch_Body_2
-    400030: Top_Door_1
-    400032: TopFloor
-    400034: TopSwitch
-    400036: TopSwitch_1
-    400038: Wall
-    400040: CINEMA_4D_Editor
+    100000: CINEMA_4D_Editor
+    100002: Cube
+    100004: //RootNode
+    400000: CINEMA_4D_Editor
+    400002: Cube
+    400004: //RootNode
     2000000: CINEMA_4D_Editor
     2100000: No Name
-    2300000: Bottom_Door
-    2300002: BottomFloor
-    2300004: Cube
-    2300006: Cube_1
-    2300008: Cylinder
-    2300010: Cylinder_2
-    2300012: Sepertator
-    2300014: Sphere
-    2300016: Sphere_2
-    2300018: Switch_Body
-    2300020: Switch_Body_2
-    2300022: Top_Door_1
-    2300024: TopFloor
-    2300026: Wall
-    3300000: Bottom_Door
-    3300002: BottomFloor
-    3300004: Cube
-    3300006: Cube_1
-    3300008: Cylinder
-    3300010: Cylinder_2
-    3300012: Sepertator
-    3300014: Sphere
-    3300016: Sphere_2
-    3300018: Switch_Body
-    3300020: Switch_Body_2
-    3300022: Top_Door_1
-    3300024: TopFloor
-    3300026: Wall
-    4300000: Sphere
-    4300002: Cylinder
-    4300004: Switch_Body
-    4300006: Sphere_2
-    4300008: Cylinder_2
-    4300010: Switch_Body_2
-    4300012: Cube
-    4300014: BottomFloor
-    4300016: TopFloor
-    4300018: Bottom_Door
-    4300020: Top_Door_1
-    4300022: Sepertator
-    4300024: Cube_1
-    4300026: Wall
+    2300000: Cube
+    3300000: Cube
+    4300000: Cube
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -141,8 +67,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
