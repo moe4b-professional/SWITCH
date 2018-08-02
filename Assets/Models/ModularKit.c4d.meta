@@ -3,7 +3,6 @@ guid: 0693c2b705e10f64dbaaeeca024cbbdf
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-<<<<<<< HEAD
     100000: BottomSwitch
     100002: Cube
     100004: Cube_1
@@ -28,12 +27,6 @@ ModelImporter:
     4300004: Cube
     4300006: CubeSwitch
     9500000: //RootNode
-=======
-    100000: //RootNode
-    400000: //RootNode
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
->>>>>>> 2a2c3b192ac48150dbbb5a412f83ed55c16a0f5a
   externalObjects: {}
   materials:
     importMaterials: 1
