@@ -25,7 +25,7 @@ namespace DEFAULTNAMESPACE
 
         public bool isOpen = false;
 
-        public float startingHeight;
+        float startingHeight;
 
         public float speed = 5f;
 
