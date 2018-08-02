@@ -43,11 +43,11 @@ namespace DEFAULTNAMESPACE
 
             var velocity = rb.velocity;
 
-            velocity.z = moveInput * speed;
+            velocity.x = moveInput * speed;
 
             rb.velocity = velocity;
 
-            if (Input.GetButton(jumpAxis))
+            if (Input.GetButtonDown(jumpAxis))
                 rb.AddForce(Vector3.up * direction * jumpPower, ForceMode.VelocityChange);
 
             rb.AddForce(Vector3.up * direction * Physics.gravity.y, ForceMode.Acceleration);
