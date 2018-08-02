@@ -22,7 +22,7 @@ namespace DEFAULTNAMESPACE
 	public class DoorSwitchControl : MonoBehaviour
 	{
         public Switch[] switches;
-        public Door[] doors;
+        public Room room;
 
         void Start()
         {
@@ -36,7 +36,7 @@ namespace DEFAULTNAMESPACE
 
             foreach (var sw in switches)
             {
-                if(!sw.IsActive)
+                if(!sw.Active)
                 {
                     allSwitchesActive = false;
                     break;
@@ -45,7 +45,7 @@ namespace DEFAULTNAMESPACE
 
             if(allSwitchesActive)
             {
-                foreach (var door in doors)
+                foreach (var door in room.doors)
                     door.isOpen = true;
             }
         }

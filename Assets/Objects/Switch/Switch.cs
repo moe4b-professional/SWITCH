@@ -26,14 +26,16 @@ namespace DEFAULTNAMESPACE
         public UnityEvent OnEnter;
         public UnityEvent OnExit;
 
-        bool isActive;
-        public bool IsActive { get { return isActive; } }
+        public SwitchType type = SwitchType.Toggle;
+
+        bool active;
+        public bool Active { get { return active; } }
 
         void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                isActive = true;
+                active = true;
                 OnEnter.Invoke();
             }
         }
@@ -42,9 +44,16 @@ namespace DEFAULTNAMESPACE
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                isActive = false;
+                if (type == SwitchType.Hold)
+                    active = false;
+
                 OnExit.Invoke();
             }
         }
+    }
+
+    public enum SwitchType
+    {
+        Hold, Toggle
     }
 }

@@ -23,6 +23,8 @@ namespace DEFAULTNAMESPACE
 	{
         new Rigidbody rigidbody;
 
+        public bool control = true;
+
         public float direction = 1f;
 
         public MovementData movement;
@@ -35,6 +37,8 @@ namespace DEFAULTNAMESPACE
         }
         public void ProcessMovement()
         {
+            if (!control) return;
+
             var velocity = rigidbody.velocity;
 
             velocity.x = Input.GetAxis(movement.inputAxis) * movement.speed;
@@ -52,7 +56,7 @@ namespace DEFAULTNAMESPACE
         }
         public void ProcessJump()
         {
-            if(Input.GetButtonDown(jump.inputButton))
+            if(control && Input.GetButtonDown(jump.inputButton))
             {
                 rigidbody.AddForce(Vector3.up * direction * jump.force, ForceMode.VelocityChange);
             }
@@ -74,5 +78,33 @@ namespace DEFAULTNAMESPACE
             ProcessMovement();
             ProcessJump();
         }
-	}
+
+        public void NavigateTo(float xPosition)
+        {
+            navigationCoroutine = StartCoroutine(NavigationProcedure(xPosition));
+        }
+
+        Coroutine navigationCoroutine;
+        public bool IsNavigating { get { return navigationCoroutine != null; } }
+        IEnumerator NavigationProcedure(float xPosition)
+        {
+            control = false;
+
+            var target = transform.position;
+            target.x = xPosition;
+
+            while (true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target, movement.speed * Time.deltaTime);
+
+                if (Mathf.Approximately(transform.position.x, xPosition))
+                    break;
+                else
+                    yield return new WaitForEndOfFrame();
+            }
+
+            control = true;
+            navigationCoroutine = null;
+        }
+    }
 }

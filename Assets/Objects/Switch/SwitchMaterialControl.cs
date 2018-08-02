@@ -23,22 +23,35 @@ namespace DEFAULTNAMESPACE
     {
         public Material active;
 
-        public Renderer[] renderers;
+        Material neutral;
+
+        new public Renderer renderer;
+
+        Switch SW;
 
         void Start()
         {
-            GetComponent<Switch>().OnEnter.AddListener(OnEnter);
+            neutral = renderer.material;
+
+            SW = GetComponent<Switch>();
+
+            SW.OnEnter.AddListener(OnEnter);
+            SW.OnExit.AddListener(OnExit);
         }
 
         void OnEnter()
         {
-            Set(active);
+            UpdateMaterial();
         }
 
-        void Set(Material material)
+        void OnExit()
         {
-            foreach (var renderer in renderers)
-                renderer.material = material;
+            UpdateMaterial();
         }
-	}
+
+        void UpdateMaterial()
+        {
+            renderer.material = SW.Active ? active : neutral;
+        }
+    }
 }
