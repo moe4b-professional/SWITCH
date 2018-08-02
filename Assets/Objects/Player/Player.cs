@@ -62,11 +62,6 @@ namespace DEFAULTNAMESPACE
             }
         }
 
-        public void ProcessGravity()
-        {
-            rigidbody.AddForce(Vector3.up * direction * Physics.gravity.y, ForceMode.Acceleration);
-        }
-
         void Awake()
         {
             rigidbody = GetComponent<Rigidbody>();
@@ -74,7 +69,6 @@ namespace DEFAULTNAMESPACE
 
         void Update()
         {
-            ProcessGravity();
             ProcessMovement();
             ProcessJump();
         }
