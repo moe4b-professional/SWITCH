@@ -3,10 +3,37 @@ guid: 0693c2b705e10f64dbaaeeca024cbbdf
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
+<<<<<<< HEAD
+    100000: BottomSwitch
+    100002: Cube
+    100004: Cube_1
+    100006: CubeSwitch
+    100008: //RootNode
+    400000: BottomSwitch
+    400002: Cube
+    400004: Cube_1
+    400006: CubeSwitch
+    400008: //RootNode
+    2100000: No Name
+    2300000: BottomSwitch
+    2300002: Cube
+    2300004: Cube_1
+    2300006: CubeSwitch
+    3300000: BottomSwitch
+    3300002: Cube
+    3300004: Cube_1
+    3300006: CubeSwitch
+    4300000: Cube_1
+    4300002: BottomSwitch
+    4300004: Cube
+    4300006: CubeSwitch
+    9500000: //RootNode
+=======
     100000: //RootNode
     400000: //RootNode
     9500000: //RootNode
     2186277476908879412: ImportLogs
+>>>>>>> 2a2c3b192ac48150dbbb5a412f83ed55c16a0f5a
   externalObjects: {}
   materials:
     importMaterials: 1
