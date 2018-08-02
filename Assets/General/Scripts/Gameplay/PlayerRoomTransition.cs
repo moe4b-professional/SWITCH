@@ -54,8 +54,6 @@ namespace DEFAULTNAMESPACE
 
             while (true)
             {
-                Debug.Log(Player1.IsNavigating + " : " + Player2.IsNavigating + " : " + followCamera.IsMoving);
-
                 if (Player1.IsNavigating || Player2.IsNavigating || followCamera.IsMoving)
                     yield return new WaitForEndOfFrame();
                 else
@@ -66,8 +64,6 @@ namespace DEFAULTNAMESPACE
 
             foreach (var door in current.doors)
                 door.isOpen = false;
-
-            Debug.Log("END");
         }
 
         void OnDrawGizmos()

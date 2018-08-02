@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 111317953}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 9.4, z: 0}
-  m_LocalScale: {x: 2, y: 0.2, z: 1}
+  m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 1097295118}
   m_RootOrder: 4
@@ -158,8 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: {fileID: 2100000, guid: 2d0e9dba70779f94bb64bf6104cde264, type: 2}
-  renderers:
-  - {fileID: 111317958}
+  renderer: {fileID: 111317958}
 --- !u!114 &111317956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +180,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  type: 0
 --- !u!65 &111317957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -601,7 +601,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 698747083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: 21, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1162221596}
@@ -665,8 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: {fileID: 2100000, guid: 2d0e9dba70779f94bb64bf6104cde264, type: 2}
-  renderers:
-  - {fileID: 706643206}
+  renderer: {fileID: 706643206}
 --- !u!114 &706643204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +687,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  type: 0
 --- !u!65 &706643205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -750,7 +750,7 @@ Transform:
   m_GameObject: {fileID: 706643202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 9.4, z: 0}
-  m_LocalScale: {x: 2, y: 0.2, z: 1}
+  m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 1162221596}
   m_RootOrder: 5
@@ -998,7 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openHeight: 1.67
-  isOpen: 1
+  isOpen: 0
   speed: 5
 --- !u!1 &1020958188
 GameObject:
@@ -1028,7 +1028,7 @@ Transform:
   m_GameObject: {fileID: 1020958188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -9.4, z: 0}
-  m_LocalScale: {x: 2, y: 0.2, z: 1}
+  m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 1097295118}
   m_RootOrder: 3
@@ -1045,8 +1045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: {fileID: 2100000, guid: 2d0e9dba70779f94bb64bf6104cde264, type: 2}
-  renderers:
-  - {fileID: 1020958193}
+  renderer: {fileID: 1020958193}
 --- !u!114 &1020958191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,6 +1067,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  type: 0
 --- !u!65 &1020958192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1995,7 +1995,7 @@ Transform:
   m_GameObject: {fileID: 1734597671}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -9.4, z: 0}
-  m_LocalScale: {x: 2, y: 0.2, z: 1}
+  m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 1162221596}
   m_RootOrder: 4
@@ -2021,6 +2021,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  type: 0
 --- !u!114 &1734597677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,8 +2034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: {fileID: 2100000, guid: 2d0e9dba70779f94bb64bf6104cde264, type: 2}
-  renderers:
-  - {fileID: 1734597673}
+  renderer: {fileID: 1734597673}
 --- !u!1 &1804731405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,7 +2212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openHeight: -1.67
-  isOpen: 1
+  isOpen: 0
   speed: 5
 --- !u!1 &2141225369
 GameObject:

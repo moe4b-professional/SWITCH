@@ -26,6 +26,8 @@ namespace DEFAULTNAMESPACE
         public UnityEvent OnEnter;
         public UnityEvent OnExit;
 
+        public SwitchType type = SwitchType.Toggle;
+
         bool active;
         public bool Active { get { return active; } }
 
@@ -42,8 +44,16 @@ namespace DEFAULTNAMESPACE
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                if (type == SwitchType.Hold)
+                    active = false;
+
                 OnExit.Invoke();
             }
         }
+    }
+
+    public enum SwitchType
+    {
+        Hold, Toggle
     }
 }
