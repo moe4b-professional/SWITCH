@@ -10,6 +10,7 @@ ModelImporter:
     400002: Platform
     400004: Side
     2100000: Jump Platform
+    2100002: Action Zone
     2300000: //RootNode
     2300002: Platform
     2300004: Side
