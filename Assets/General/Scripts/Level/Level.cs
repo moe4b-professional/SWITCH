@@ -34,6 +34,10 @@ namespace DEFAULTNAMESPACE
 
         public RoomsList roomsList;
 
+        [NonSerialized]
+        public GameState state = GameState.Idle;
+        public bool IsPlaying { get { return state == GameState.Playing; } }
+
         void Awake()
         {
             Instance = this;
@@ -42,4 +46,9 @@ namespace DEFAULTNAMESPACE
             roomsList = FindObjectOfType<RoomsList>();
         }
 	}
+
+    public enum GameState
+    {
+        Idle, Playing, End
+    }
 }

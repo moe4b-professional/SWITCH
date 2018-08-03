@@ -21,6 +21,8 @@ namespace DEFAULTNAMESPACE
 {
 	public class Player : MonoBehaviour
 	{
+        public Level Level { get { return Level.Instance; } }
+
         new Rigidbody rigidbody;
         CustomGravity gravity;
 
@@ -55,7 +57,7 @@ namespace DEFAULTNAMESPACE
         }
         public void ProcessJump()
         {
-            if(control && Input.GetButtonDown(jump.inputButton))
+            if(control && Level.IsPlaying && Input.GetButtonDown(jump.inputButton))
             {
                 rigidbody.AddForce(Vector3.up * gravity.direction * jump.force * jump.multiplier, ForceMode.VelocityChange);
             }
@@ -64,7 +66,7 @@ namespace DEFAULTNAMESPACE
         Animator animator;
         void ProcessAnimator()
         {
-            if (!control) return;
+            if (!control || !Level.IsPlaying) return;
             var input = Input.GetAxis(movement.inputAxis);
             var dampTime = Mathf.Approximately(input, 0f) ? 0.5f : 0.2f;
 
