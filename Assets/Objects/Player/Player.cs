@@ -189,8 +189,8 @@ namespace DEFAULTNAMESPACE
 
             if (propCollision != null)
             {
-                animator.SetIKPosition(AvatarIKGoal.RightHand, propCollision.contacts.First().point);
-                animator.SetIKPosition(AvatarIKGoal.LeftHand, propCollision.contacts.First().point);
+                animator.SetIKPosition(AvatarIKGoal.RightHand, propCollision.contacts.First().point + Vector3.up * 0.5f + transform.right * 0.4f);
+                animator.SetIKPosition(AvatarIKGoal.LeftHand, propCollision.contacts.First().point + Vector3.up * 0.5f + -transform.right * 0.4f);
             }
         }
     }
