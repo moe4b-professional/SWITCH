@@ -110,9 +110,9 @@ namespace DEFAULTNAMESPACE
             {
                 target.z = 0f;
 
-                if (direction > 0f)
+                if (direction >= 0f)
                     target.y = 0f + 90f;
-                else if (direction < 0f)
+                else
                     target.y = 180f + 90f;
             }
 
