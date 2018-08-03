@@ -24,8 +24,6 @@ namespace DEFAULTNAMESPACE
         public Switch[] switches;
         public Door[] doors;
 
-        public bool invertActivation = false;
-
         void Start()
         {
             foreach (var sw in switches)
@@ -38,16 +36,8 @@ namespace DEFAULTNAMESPACE
 
             foreach (var sw in switches)
             {
-                if(invertActivation)
-                {
-                    if (sw.Active)
-                        allSwitchesActive = false;
-                }
-                else
-                {
-                    if (!sw.Active)
-                        allSwitchesActive = false;
-                }
+                if (!sw.Active)
+                    allSwitchesActive = false;
 
                 if (!allSwitchesActive) break;
             }
@@ -56,6 +46,9 @@ namespace DEFAULTNAMESPACE
             {
                 foreach (var door in doors)
                     door.isOpen = true;
+
+                foreach (var sw in switches)
+                    sw.enabled = false;
             }
         }
 	}

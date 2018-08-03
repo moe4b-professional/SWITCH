@@ -51,13 +51,15 @@ namespace DEFAULTNAMESPACE
         {
             public float force;
 
+            public float multiplier = 1f;
+
             public string inputButton;
         }
         public void ProcessJump()
         {
             if(control && Input.GetButtonDown(jump.inputButton))
             {
-                rigidbody.AddForce(Vector3.up * gravity.direction * jump.force, ForceMode.VelocityChange);
+                rigidbody.AddForce(Vector3.up * gravity.direction * jump.force * jump.multiplier, ForceMode.VelocityChange);
             }
         }
 
