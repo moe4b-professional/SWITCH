@@ -17,24 +17,23 @@ using UnityEditorInternal;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-using UnityEngine.Events;
-
 namespace DEFAULTNAMESPACE
 {
-    public abstract class Switch : MonoBehaviour
-    {
-        public abstract bool Active { get; }
-
-        public event Action OnActivity;
-        protected void TriggerActivity()
+	public class LaserSwitch : Switch
+	{
+        bool isActive;
+        public override bool Active
         {
-            if (OnActivity != null)
-                OnActivity.Invoke();
+            get
+            {
+                return isActive;
+            }
         }
-
-        public bool IsActivator(GameObject gameObject)
+        public void SetActive(bool value)
         {
-            return gameObject.CompareTag("Player") || gameObject.CompareTag("Prop");
+            isActive = value;
+
+            TriggerActivity();
         }
     }
 }

@@ -24,32 +24,38 @@ namespace DEFAULTNAMESPACE
         public Switch[] switches;
         public Door[] doors;
 
+        public bool invertActivation = false;
+
         void Start()
         {
             foreach (var sw in switches)
-                sw.OnEnter.AddListener(OnSwitchActivated);
+                sw.OnActivity += OnSwitchActivity;
         }
 
-        void OnSwitchActivated()
+        void OnSwitchActivity()
         {
             bool allSwitchesActive = true;
 
             foreach (var sw in switches)
             {
-                if(!sw.Active)
+                if(invertActivation)
                 {
-                    allSwitchesActive = false;
-                    break;
+                    if (sw.Active)
+                        allSwitchesActive = false;
                 }
+                else
+                {
+                    if (!sw.Active)
+                        allSwitchesActive = false;
+                }
+
+                if (!allSwitchesActive) break;
             }
 
             if(allSwitchesActive)
             {
                 foreach (var door in doors)
                     door.isOpen = true;
-
-                foreach (var sw in switches)
-                    sw.enabled = false;
             }
         }
 	}

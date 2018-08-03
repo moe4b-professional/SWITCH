@@ -65,15 +65,5 @@ namespace DEFAULTNAMESPACE
             foreach (var door in current.doors)
                 door.isOpen = false;
         }
-
-        void OnDrawGizmos()
-        {
-            if (!Application.isPlaying) return;
-
-            var position = target.transform.position;
-            position.x -= target.Bounds.size.x;
-
-            Gizmos.DrawCube(position, Vector3.one * 4f);
-        }
     }
 }
