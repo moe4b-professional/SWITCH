@@ -23,7 +23,24 @@ namespace DEFAULTNAMESPACE
 {
     public class Room : MonoBehaviour
     {
-        public Door[] doors;
+        public DoorsData doors;
+        [Serializable]
+        public class DoorsData
+        {
+            public Door[] entrance;
+            public virtual void SetEntrance(bool isOpen)
+            {
+                foreach (var door in entrance)
+                    door.isOpen = isOpen;
+            }
+
+            public Door[] exit;
+            public virtual void SetExit(bool isOpen)
+            {
+                foreach (var door in exit)
+                    door.isOpen = isOpen;
+            }
+        }
 
         public Bounds Bounds { get; protected set; }
         void CalculateBounds()

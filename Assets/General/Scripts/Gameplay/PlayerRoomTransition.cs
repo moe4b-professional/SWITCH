@@ -26,10 +26,7 @@ namespace DEFAULTNAMESPACE
         public Player Player1 { get { return Level.player1; } }
         public Player Player2 { get { return Level.player2; } }
 
-        public float speed = 5f;
-
-        public Room current;
-        public Room target;
+        Room current;
 
         void OnTriggerEnter(Collider collider)
         {
@@ -45,10 +42,13 @@ namespace DEFAULTNAMESPACE
         Coroutine coroutine;
         IEnumerator Procedure()
         {
-            Player1.control = Player2.control = false;
+            current = GetComponentInParent<Room>();
+            var target = Level.roomsList.GetNext(current);
+
+            target.doors.SetEntrance(true);
 
             followCamera.MoveTo(target.transform.position.x);
-            var playerXTarget = target.transform.position.x - (target.Bounds.extents.x - 5f);
+            var playerXTarget = target.transform.position.x - (target.Bounds.extents.x - 10f);
             Player1.NavigateTo(playerXTarget);
             Player2.NavigateTo(playerXTarget);
 
@@ -62,8 +62,8 @@ namespace DEFAULTNAMESPACE
 
             Player1.control = Player2.control = true;
 
-            foreach (var door in current.doors)
-                door.isOpen = false;
+            target.doors.SetEntrance(false);
+            current.doors.SetEntrance(false);
         }
     }
 }

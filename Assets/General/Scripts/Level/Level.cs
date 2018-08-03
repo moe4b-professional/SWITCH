@@ -32,11 +32,14 @@ namespace DEFAULTNAMESPACE
         public Player player1;
         public Player player2;
 
+        public RoomsList roomsList;
+
         void Awake()
         {
             Instance = this;
 
             followCamera = FindObjectOfType<FollowCamera>();
+            roomsList = FindObjectOfType<RoomsList>();
         }
 	}
 }
