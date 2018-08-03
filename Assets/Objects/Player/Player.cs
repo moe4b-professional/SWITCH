@@ -40,7 +40,7 @@ namespace DEFAULTNAMESPACE
 
             var velocity = rigidbody.velocity;
 
-            velocity.x = Input.GetAxis(movement.inputAxis) * movement.speed;
+            velocity.x = animator.velocity.x;
 
             rigidbody.velocity = velocity;
         }
@@ -63,16 +63,64 @@ namespace DEFAULTNAMESPACE
             }
         }
 
+        Animator animator;
+        void ProcessAnimator()
+        {
+            var input = Input.GetAxis(movement.inputAxis);
+            var dampTime = Mathf.Approximately(input, 0f) ? 0.5f : 0.2f;
+
+            animator.SetFloat("Speed", input, dampTime, Time.deltaTime);
+        }
+
         void Awake()
         {
             rigidbody = GetComponent<Rigidbody>();
             gravity = GetComponent<CustomGravity>();
+
+            animator = GetComponentInChildren<Animator>();
         }
 
         void Update()
         {
             ProcessMovement();
             ProcessJump();
+
+            ProcessRotation();
+
+            ProcessAnimator();
+        }
+
+        void ProcessRotation()
+        {
+            var angles = transform.eulerAngles;
+
+            var target = transform.eulerAngles;
+
+            var direction = animator.GetFloat("Speed");
+
+            if (gravity.direction < 0)
+            {
+                target.z = 180f;
+
+                if (direction < 0f)
+                    target.y = 0f;
+                else if (direction > 0f)
+                    target.y = 180f;
+            }
+            else
+            {
+                target.z = 0f;
+
+                if (direction > 0f)
+                    target.y = 0f;
+                else if (direction < 0f)
+                    target.y = 180f;
+            }
+
+            angles.y = Mathf.MoveTowards(angles.y, target.y, 540f * Time.deltaTime);
+             angles.z = Mathf.MoveTowards(angles.z, target.z, 540f * Time.deltaTime);
+
+            transform.eulerAngles = angles;
         }
 
         public void NavigateTo(float xPosition)
