@@ -36,8 +36,6 @@ namespace DEFAULTNAMESPACE
         }
         public void ProcessMovement()
         {
-            if (!control) return;
-
             var velocity = rigidbody.velocity;
 
             velocity.x = animator.velocity.x;
@@ -66,6 +64,7 @@ namespace DEFAULTNAMESPACE
         Animator animator;
         void ProcessAnimator()
         {
+            if (!control) return;
             var input = Input.GetAxis(movement.inputAxis);
             var dampTime = Mathf.Approximately(input, 0f) ? 0.5f : 0.2f;
 
@@ -100,25 +99,25 @@ namespace DEFAULTNAMESPACE
 
             if (gravity.direction < 0)
             {
-                target.z = 180f;
-
                 if (direction < 0f)
-                    target.y = 0f;
-                else if (direction > 0f)
-                    target.y = 180f;
+                    target.y = 270f;
+                else
+                    target.y = 180f - 90f;
+
+                target.z = 180f;
             }
             else
             {
                 target.z = 0f;
 
                 if (direction > 0f)
-                    target.y = 0f;
+                    target.y = 0f + 90f;
                 else if (direction < 0f)
-                    target.y = 180f;
+                    target.y = 180f + 90f;
             }
 
             angles.y = Mathf.MoveTowards(angles.y, target.y, 540f * Time.deltaTime);
-             angles.z = Mathf.MoveTowards(angles.z, target.z, 540f * Time.deltaTime);
+            angles.z = Mathf.MoveTowards(angles.z, target.z, 180f * Time.deltaTime);
 
             transform.eulerAngles = angles;
         }
@@ -137,6 +136,8 @@ namespace DEFAULTNAMESPACE
             var constraints = rigidbody.constraints;
             rigidbody.constraints = constraints | RigidbodyConstraints.FreezePositionX;
 
+            animator.SetFloat("Speed", 2f);
+
             var target = transform.position;
             target.x = xPosition;
 
@@ -154,6 +155,41 @@ namespace DEFAULTNAMESPACE
 
             control = true;
             navigationCoroutine = null;
+        }
+
+        Collision propCollision;
+        void OnCollisionStay(Collision collision)
+        {
+            var angle = Vector3.Angle(transform.forward, -collision.contacts.First().normal);
+
+            if (angle < 20f)
+                propCollision = collision;
+            else
+            {
+                if (propCollision != null && propCollision.gameObject == collision.gameObject)
+                    propCollision = null;
+            }
+        }
+
+        void OnCollisionExit(Collision collision)
+        {
+            if (propCollision != null && propCollision.gameObject == collision.gameObject)
+                propCollision = null;
+        }
+
+        float handsWeight = 0f;
+        void OnAnimatorIK(int layerIndex)
+        {
+            handsWeight = Mathf.MoveTowards(handsWeight, propCollision == null ? 0f : 1f, 2 * Time.deltaTime);
+
+            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, handsWeight);
+            animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, handsWeight);
+
+            if (propCollision != null)
+            {
+                animator.SetIKPosition(AvatarIKGoal.RightHand, propCollision.contacts.First().point);
+                animator.SetIKPosition(AvatarIKGoal.LeftHand, propCollision.contacts.First().point);
+            }
         }
     }
 }
