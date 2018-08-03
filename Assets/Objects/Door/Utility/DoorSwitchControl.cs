@@ -27,20 +27,19 @@ namespace DEFAULTNAMESPACE
         void Start()
         {
             foreach (var sw in switches)
-                sw.OnEnter.AddListener(OnSwitchActivated);
+                sw.OnActivity += OnSwitchActivity;
         }
 
-        void OnSwitchActivated()
+        void OnSwitchActivity()
         {
             bool allSwitchesActive = true;
 
             foreach (var sw in switches)
             {
-                if(!sw.Active)
-                {
+                if (!sw.Active)
                     allSwitchesActive = false;
-                    break;
-                }
+
+                if (!allSwitchesActive) break;
             }
 
             if(allSwitchesActive)

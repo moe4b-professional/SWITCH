@@ -35,16 +35,11 @@ namespace DEFAULTNAMESPACE
 
             SW = GetComponent<Switch>();
 
-            SW.OnEnter.AddListener(OnEnter);
-            SW.OnExit.AddListener(OnExit);
+            SW.OnActivity+= OnSwitchActivity;
+            SW.OnActivity+= OnSwitchActivity;
         }
 
-        void OnEnter()
-        {
-            UpdateMaterial();
-        }
-
-        void OnExit()
+        void OnSwitchActivity()
         {
             UpdateMaterial();
         }
