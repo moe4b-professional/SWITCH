@@ -23,7 +23,10 @@ namespace DEFAULTNAMESPACE
 	{
         public float delay = 2f;
 
-		void OnCollisionEnter(Collision collision)
+        public AudioSource audioSource;
+        public AudioClip SFX;
+
+        void OnCollisionEnter(Collision collision)
         {
             if (processes.ContainsKey(collision.gameObject)) return;
 
@@ -63,6 +66,7 @@ namespace DEFAULTNAMESPACE
 
         void Action(CustomGravity target)
         {
+            audioSource.PlayOneShot(SFX);
             target.direction *= -1;
         }
 
