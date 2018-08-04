@@ -55,6 +55,10 @@ namespace DEFAULTNAMESPACE
 
             Bounds = value;
         }
+        public float GetEntranceXPosition()
+        {
+            return transform.position.x - (Bounds.extents.x - 10f);
+        }
 
         void Start()
         {

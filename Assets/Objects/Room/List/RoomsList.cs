@@ -50,5 +50,34 @@ namespace DEFAULTNAMESPACE
                 return null;
             }
         }
+
+        public void TeleportPlayers(int roomIndex)
+        {
+            TeleportPlayers(list[roomIndex]);
+        }
+        public void TeleportPlayers(Room room)
+        {
+            var player1 = Level.Instance.player1;
+            var player2 = Level.Instance.player2;
+
+            SetXPosition(player1.transform, room.GetEntranceXPosition());
+            SetXPosition(player2.transform, room.GetEntranceXPosition());
+
+            player1.gravity.direction = 1;
+            player2.gravity.direction = -1;
+
+            var followCamera = Level.Instance.FollowCamera;
+
+            SetXPosition(followCamera.transform, room.transform.position.x);
+        }
+
+        void SetXPosition(Transform transform, float value)
+        {
+            var position = transform.position;
+
+            position.x = value;
+
+            transform.position = position;
+        }
 	}
 }

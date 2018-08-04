@@ -48,7 +48,7 @@ namespace DEFAULTNAMESPACE
             target.doors.SetEntrance(true);
 
             followCamera.MoveTo(target.transform.position.x);
-            var playerXTarget = target.transform.position.x - (target.Bounds.extents.x - 5f);
+            var playerXTarget = target.GetEntranceXPosition();
             Player1.NavigateTo(playerXTarget);
             Player2.NavigateTo(playerXTarget);
 

@@ -32,17 +32,21 @@ namespace DEFAULTNAMESPACE
         public Player player1;
         public Player player2;
 
+        [NonSerialized]
         public RoomsList roomsList;
 
         [NonSerialized]
+        public InGameUI InGameUI;
+        [NonSerialized]
         public GameState state = GameState.Idle;
-        public bool IsPlaying { get { return state == GameState.Playing; } }
+        public bool IsPlaying { get { return state == GameState.Playing && !InGameUI.pauseMenu.active; } }
 
         void Awake()
         {
             Instance = this;
 
             followCamera = FindObjectOfType<FollowCamera>();
+            InGameUI = FindObjectOfType<InGameUI>();
             roomsList = FindObjectOfType<RoomsList>();
         }
 	}

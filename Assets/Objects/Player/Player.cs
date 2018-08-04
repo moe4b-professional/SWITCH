@@ -24,7 +24,8 @@ namespace DEFAULTNAMESPACE
         public Level Level { get { return Level.Instance; } }
 
         new Rigidbody rigidbody;
-        CustomGravity gravity;
+        [NonSerialized]
+        public CustomGravity gravity;
 
         public bool control = true;
 
@@ -66,8 +67,11 @@ namespace DEFAULTNAMESPACE
         Animator animator;
         void ProcessAnimator()
         {
-            if (!control || !Level.IsPlaying) return;
             var input = Input.GetAxis(movement.inputAxis);
+
+            if (!control || !Level.IsPlaying)
+                input = 0f;
+
             var dampTime = Mathf.Approximately(input, 0f) ? 0.5f : 0.2f;
 
             animator.SetFloat("Speed", input, dampTime, Time.deltaTime);
