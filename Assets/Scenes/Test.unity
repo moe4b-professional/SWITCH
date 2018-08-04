@@ -1333,7 +1333,7 @@ GameObject:
   - component: {fileID: 76886496}
   - component: {fileID: 76886495}
   m_Layer: 0
-  m_Name: Room 2
+  m_Name: Room 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2877,7 +2877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 822.4923, y: -384.0293}
+  m_AnchoredPosition: {x: 640, y: -464.5}
   m_SizeDelta: {x: 180, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187271800
@@ -7091,7 +7091,7 @@ GameObject:
   - component: {fileID: 529575775}
   - component: {fileID: 529575774}
   m_Layer: 0
-  m_Name: Room 1
+  m_Name: Room 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7990,7 +7990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 822.4923, y: -304.0293}
+  m_AnchoredPosition: {x: 640, y: -384.5}
   m_SizeDelta: {x: 180, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599750493
@@ -9664,7 +9664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 822.4923, y: -244.02931}
+  m_AnchoredPosition: {x: 640, y: -324.5}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &728322447
@@ -10446,7 +10446,7 @@ GameObject:
   - component: {fileID: 781479768}
   - component: {fileID: 781479767}
   m_Layer: 0
-  m_Name: Room 6
+  m_Name: Room 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11115,7 +11115,7 @@ GameObject:
   - component: {fileID: 846520006}
   - component: {fileID: 846520005}
   m_Layer: 0
-  m_Name: Room 5
+  m_Name: Room 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14127,7 +14127,7 @@ GameObject:
   - component: {fileID: 1113126117}
   - component: {fileID: 1113126116}
   m_Layer: 0
-  m_Name: Room 3
+  m_Name: Room 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15354,7 +15354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 822.4923, y: -464.0293}
+  m_AnchoredPosition: {x: 640, y: -544.5}
   m_SizeDelta: {x: 180, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1212689454
@@ -20442,7 +20442,7 @@ GameObject:
   - component: {fileID: 1640807110}
   - component: {fileID: 1640807109}
   m_Layer: 0
-  m_Name: Room 4
+  m_Name: Room 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23454,8 +23454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 822.4923, y: -140.1242}
-  m_SizeDelta: {x: 624.6174, y: 147.81021}
+  m_AnchoredPosition: {x: 640, y: -220}
+  m_SizeDelta: {x: 635, y: 149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819531733
 MonoBehaviour:
