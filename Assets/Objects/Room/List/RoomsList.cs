@@ -60,8 +60,8 @@ namespace DEFAULTNAMESPACE
             var player1 = Level.Instance.player1;
             var player2 = Level.Instance.player2;
 
-            SetXPosition(player1.transform, room.GetEntranceXPosition());
-            SetXPosition(player2.transform, room.GetEntranceXPosition());
+            SetXPosition(player1.transform, room.GetEntranceXPosition() - 0.3f);
+            SetXPosition(player2.transform, room.GetEntranceXPosition() + 0.3f);
 
             player1.gravity.direction = 1;
             player2.gravity.direction = -1;

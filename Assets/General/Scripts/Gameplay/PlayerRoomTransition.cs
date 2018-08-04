@@ -49,11 +49,13 @@ namespace DEFAULTNAMESPACE
 
             followCamera.MoveTo(target.transform.position.x);
             var playerXTarget = target.GetEntranceXPosition();
-            Player1.NavigateTo(playerXTarget);
-            Player2.NavigateTo(playerXTarget);
+            Player1.NavigateTo(playerXTarget + 0.3f);
+            Player2.NavigateTo(playerXTarget - 0.3f);
 
             while (true)
             {
+                Player1.control = Player2.control = false;
+
                 if (Player1.IsNavigating || Player2.IsNavigating || followCamera.IsMoving)
                     yield return new WaitForEndOfFrame();
                 else
