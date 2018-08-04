@@ -54,6 +54,8 @@ namespace DEFAULTNAMESPACE
 
             while (true)
             {
+                Player1.control = Player2.control = false;
+
                 if (Player1.IsNavigating || Player2.IsNavigating || followCamera.IsMoving)
                     yield return new WaitForEndOfFrame();
                 else
@@ -61,6 +63,8 @@ namespace DEFAULTNAMESPACE
             }
 
             Player1.control = Player2.control = true;
+            Player1.gravity.direction = 1;
+            Player2.gravity.direction = -1;
 
             target.doors.SetEntrance(false);
             current.doors.SetEntrance(false);

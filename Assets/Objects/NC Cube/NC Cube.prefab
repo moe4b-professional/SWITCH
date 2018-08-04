@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 135687231078343540}
   - component: {fileID: 54468848338004168}
   - component: {fileID: 114903388488263076}
+  - component: {fileID: 114965014011237332}
   m_Layer: 0
   m_Name: NC Cube
   m_TagString: Prop
@@ -114,6 +115,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   multiplier: 1
+--- !u!114 &114965014011237332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1029177712675502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea057df7733c174494e428cd54d2069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushBackForce: 2
+  pushBackRange: 1
+  pushBackMask:
+    serializedVersion: 2
+    m_Bits: 51
 --- !u!135 &135687231078343540
 SphereCollider:
   m_ObjectHideFlags: 1

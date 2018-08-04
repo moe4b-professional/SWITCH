@@ -23,6 +23,7 @@ namespace DEFAULTNAMESPACE
 	{
         public Level Level { get { return Level.Instance; } }
 
+        new CapsuleCollider collider;
         new Rigidbody rigidbody;
         [NonSerialized]
         public CustomGravity gravity;
@@ -58,7 +59,7 @@ namespace DEFAULTNAMESPACE
         }
         public void ProcessJump()
         {
-            if(control && Level.IsPlaying && Input.GetButtonDown(jump.inputButton))
+            if(control && Level.IsPlaying && onGround && Input.GetButtonDown(jump.inputButton))
             {
                 rigidbody.AddForce(Vector3.up * gravity.direction * jump.force * jump.multiplier, ForceMode.VelocityChange);
             }
@@ -79,6 +80,7 @@ namespace DEFAULTNAMESPACE
 
         void Awake()
         {
+            collider = GetComponent<CapsuleCollider>();
             rigidbody = GetComponent<Rigidbody>();
             gravity = GetComponent<CustomGravity>();
 
@@ -87,12 +89,35 @@ namespace DEFAULTNAMESPACE
 
         void Update()
         {
+            ProcessGroundCheck();
+
             ProcessMovement();
             ProcessJump();
 
             ProcessRotation();
 
             ProcessAnimator();
+        }
+
+        public LayerMask groundMask;
+        public bool onGround;
+        void ProcessGroundCheck()
+        {
+            var offset = 0.1f;
+
+            var start = transform.position + transform.up * (offset);
+            var range = offset + 0.1f;
+
+            Debug.DrawRay(start, -transform.up * range);
+
+            if(Physics.Raycast(start, -transform.up, range, groundMask))
+            {
+                onGround = true;
+            }
+            else
+            {
+                onGround = false;
+            }
         }
 
         void ProcessRotation()
