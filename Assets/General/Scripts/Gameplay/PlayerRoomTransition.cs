@@ -54,8 +54,6 @@ namespace DEFAULTNAMESPACE
 
             while (true)
             {
-                Player1.control = Player2.control = false;
-
                 if (Player1.IsNavigating || Player2.IsNavigating || followCamera.IsMoving)
                     yield return new WaitForEndOfFrame();
                 else
