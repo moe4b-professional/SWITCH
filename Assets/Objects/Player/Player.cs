@@ -21,6 +21,8 @@ namespace DEFAULTNAMESPACE
 {
 	public class Player : MonoBehaviour
 	{
+        public AudioSource audioSource;
+
         public Level Level { get { return Level.Instance; } }
 
         new CapsuleCollider collider;
@@ -53,6 +55,8 @@ namespace DEFAULTNAMESPACE
         {
             public float force;
 
+            public AudioClip SFX;
+
             public float multiplier = 1f;
 
             public string inputButton;
@@ -61,6 +65,7 @@ namespace DEFAULTNAMESPACE
         {
             if(control && Level.IsPlaying && onGround && Input.GetButtonDown(jump.inputButton))
             {
+                audioSource.PlayOneShot(jump.SFX);
                 rigidbody.AddForce(Vector3.up * gravity.direction * jump.force * jump.multiplier, ForceMode.VelocityChange);
             }
         }
