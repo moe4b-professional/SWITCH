@@ -92,6 +92,10 @@ namespace DEFAULTNAMESPACE
             var input = Input.GetAxis(movement.inputAxis);
 
             input += currentGamepad.ThumbSticks.Left.X;
+            if (currentGamepad.DPad.Right == ButtonState.Pressed)
+                input += 1;
+            if (currentGamepad.DPad.Left == ButtonState.Pressed)
+                input -= 1;
 
             input = Mathf.Clamp(input, -1f, 1f);
 

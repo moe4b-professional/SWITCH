@@ -25,7 +25,7 @@ namespace DEFAULTNAMESPACE
         [Range(-1, 1)]
         public int direction = 1;
 
-        public float multiplier = 1f;
+        float multiplier = 1.4f;
 
         new Rigidbody rigidbody;
 
