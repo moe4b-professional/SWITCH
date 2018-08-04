@@ -17047,6 +17047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 960265693}
+  index: 1
   control: 1
   movement:
     speed: 7
@@ -33710,6 +33711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1804731411}
+  index: 0
   control: 1
   movement:
     speed: 7

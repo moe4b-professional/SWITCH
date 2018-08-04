@@ -17,11 +17,15 @@ using UnityEditorInternal;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
+using XInputDotNetPure;
+
 namespace DEFAULTNAMESPACE
 {
 	public class Player : MonoBehaviour
 	{
         public AudioSource audioSource;
+
+        public PlayerIndex index;
 
         public Level Level { get { return Level.Instance; } }
 
@@ -63,17 +67,33 @@ namespace DEFAULTNAMESPACE
         }
         public void ProcessJump()
         {
-            if(control && Level.IsPlaying && onGround && Input.GetButtonDown(jump.inputButton))
+            var input = Input.GetButtonDown(jump.inputButton);
+
+            input |= oldGamepad.Buttons.A == ButtonState.Released && currentGamepad.Buttons.A == ButtonState.Pressed;
+
+            if (control && Level.IsPlaying && onGround && input)
             {
                 audioSource.PlayOneShot(jump.SFX);
                 rigidbody.AddForce(Vector3.up * gravity.direction * jump.force * jump.multiplier, ForceMode.VelocityChange);
             }
         }
 
+        GamePadState currentGamepad;
+        GamePadState oldGamepad;
+        void GetState()
+        {
+            oldGamepad = currentGamepad;
+            currentGamepad = GamePad.GetState(index);
+        }
+
         Animator animator;
         void ProcessAnimator()
         {
             var input = Input.GetAxis(movement.inputAxis);
+
+            input += currentGamepad.ThumbSticks.Left.X;
+
+            input = Mathf.Clamp(input, -1f, 1f);
 
             if (!control || !Level.IsPlaying)
                 input = 0f;
@@ -99,6 +119,8 @@ namespace DEFAULTNAMESPACE
 
         void Update()
         {
+            GetState();
+
             ProcessGroundCheck();
 
             ProcessMovement();
