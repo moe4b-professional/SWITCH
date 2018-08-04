@@ -60,22 +60,23 @@ namespace DEFAULTNAMESPACE
             var player1 = Level.Instance.player1;
             var player2 = Level.Instance.player2;
 
-            SetXPosition(player1.transform, room.GetEntranceXPosition() - 0.3f);
-            SetXPosition(player2.transform, room.GetEntranceXPosition() + 0.3f);
+            SetXPosition(player1.transform, room.GetEntranceXPosition() - 0.3f, -9.75f);
+            SetXPosition(player2.transform, room.GetEntranceXPosition() + 0.3f, 9.75f);
 
             player1.gravity.direction = 1;
             player2.gravity.direction = -1;
 
             var followCamera = Level.Instance.FollowCamera;
 
-            SetXPosition(followCamera.transform, room.transform.position.x);
+            SetXPosition(followCamera.transform, room.transform.position.x, 0f);
         }
 
-        void SetXPosition(Transform transform, float value)
+        void SetXPosition(Transform transform, float value, float y)
         {
             var position = transform.position;
 
             position.x = value;
+            position.y = y;
 
             transform.position = position;
         }
