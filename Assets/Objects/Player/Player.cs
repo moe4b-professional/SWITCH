@@ -78,11 +78,16 @@ namespace DEFAULTNAMESPACE
             animator.SetFloat("Speed", input, dampTime, Time.deltaTime);
         }
 
+        PlayerBody body;
+
         void Awake()
         {
             collider = GetComponent<CapsuleCollider>();
             rigidbody = GetComponent<Rigidbody>();
             gravity = GetComponent<CustomGravity>();
+
+            body = GetComponentInChildren<PlayerBody>();
+            body.AnimatorIKEvent += ProcessIK;
 
             animator = GetComponentInChildren<Animator>();
         }
@@ -105,7 +110,7 @@ namespace DEFAULTNAMESPACE
         {
             var offset = 0.1f;
 
-            var start = transform.position + transform.up * (offset);
+            var start = transform.position + transform.up * (offset - (collider.height / 2f));
             var range = offset + 0.1f;
 
             Debug.DrawRay(start, -transform.up * range);
@@ -209,7 +214,7 @@ namespace DEFAULTNAMESPACE
         }
 
         float handsWeight = 0f;
-        void OnAnimatorIK(int layerIndex)
+        void ProcessIK(int layerIndex)
         {
             handsWeight = Mathf.MoveTowards(handsWeight, propCollision == null ? 0f : 1f, 2 * Time.deltaTime);
 
@@ -218,8 +223,8 @@ namespace DEFAULTNAMESPACE
 
             if (propCollision != null)
             {
-                animator.SetIKPosition(AvatarIKGoal.RightHand, propCollision.contacts.First().point + Vector3.up * 0.5f + transform.right * 0.4f);
-                animator.SetIKPosition(AvatarIKGoal.LeftHand, propCollision.contacts.First().point + Vector3.up * 0.5f + -transform.right * 0.4f);
+                animator.SetIKPosition(AvatarIKGoal.RightHand, propCollision.contacts.First().point + transform.up * 0.5f + transform.right * 0.4f);
+                animator.SetIKPosition(AvatarIKGoal.LeftHand, propCollision.contacts.First().point + transform.up * 0.5f + -transform.right * 0.4f);
             }
         }
     }

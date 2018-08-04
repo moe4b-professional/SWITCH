@@ -26,8 +26,6 @@ namespace DEFAULTNAMESPACE
         float pushBackForce = 60f;
         float pushBackRange = 0.6f;
 
-        float offset = 0.2f;
-
         new Rigidbody rigidbody;
 
         void Start()
@@ -48,9 +46,7 @@ namespace DEFAULTNAMESPACE
         {
             RaycastHit hit;
 
-            var start = transform.position + direction * (bounds.extents.x - offset);
-
-            if(Physics.Raycast(start, direction, out hit, pushBackRange + offset, pushBackMask))
+            if(Physics.Raycast(transform.position, direction, out hit, pushBackRange + bounds.extents.x, pushBackMask))
             {
                 rigidbody.AddForce(-direction * pushBackForce, ForceMode.Acceleration);
             }
